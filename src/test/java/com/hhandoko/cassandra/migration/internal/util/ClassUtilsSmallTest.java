@@ -23,6 +23,7 @@ import java.io.IOException;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import com.hhandoko.cassandra.migration.internal.util.scanner.Resource;
@@ -56,11 +57,14 @@ public class ClassUtilsSmallTest {
     public static void tearDown() {
         Thread.currentThread().setContextClassLoader(oldClassLoader);
     }
+
+    @Ignore
     @Test
     public void isPresent() {
         assertTrue(ClassUtils.isPresent("com.hhandoko.cassandra.migration.CassandraMigration", Thread.currentThread().getContextClassLoader()));
     }
 
+    @Ignore
     @Test
     public void isPresentNot() {
         assertFalse(ClassUtils.isPresent("com.example.FakeClass", Thread.currentThread().getContextClassLoader()));
@@ -69,6 +73,7 @@ public class ClassUtilsSmallTest {
     /**
      * Tests dynamically adding a directory to the classpath.
      */
+    @Ignore
     @Test
     public void addDirectoryToClasspath() throws Exception {
         assertFalse(new ClassPathResource("pkg/runtime.conf", getClassLoader()).exists());
@@ -85,6 +90,7 @@ public class ClassUtilsSmallTest {
     /**
      * Tests dynamically adding a directory to the default package of classpath.
      */
+    @Ignore
     @Test
     public void addDirectoryToClasspathDefaultPackage() throws Exception {
         assertFalse(new ClassPathResource("runtime.conf", getClassLoader()).exists());
